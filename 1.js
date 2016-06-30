@@ -1,24 +1,26 @@
 var elem,
-	submit = document.getElementById('submit');
+	submit = document.getElementById('submit'),
+	select = document.getElementById('select'),
+	textarea = document.getElementById('textarea');
 
 function handler(){
-	 var select = document.getElementById('select').value;
-	 var textarea = document.getElementById('textarea').value;
+	 var selectValue = select.value;
+	 var textareaValue = textarea.value;
 
-	if (select === 'div'){
+	if (selectValue === 'div'){
 		elem = document.createElement('div');
-	} else if (select === 'p'){
+	} else if (selectValue === 'p'){
 		elem = document.createElement('p');
 	} else {
 		elem = document.createElement('span');
 	}
-	elem.innerHTML = textarea;
+	elem.innerHTML = textareaValue;
 	document.getElementById('new_div').appendChild(elem);
 };
 function handler2(){
-	var textarea = document.getElementById('textarea').value;
-	if(textarea !== ''){
-		return handler();
+	var textareaValue = textarea.value;
+	if(textareaValue !== ''){
+		handler();
 	}	
 }
 submit.addEventListener('click', handler);
